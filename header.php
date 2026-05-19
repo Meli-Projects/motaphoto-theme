@@ -11,5 +11,10 @@
 <body <?php body_class(); ?>>
 
 <header>
-    <p>Header du site</p>
+    <?php
+    wp_nav_menu([
+        'theme_location' => 'main-menu'
+    ]);
+    ?>
 </header>
+
