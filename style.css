@@ -36,6 +36,7 @@ Text Domain: motaphoto-theme
 }
 
 /*GLOBAL*/
+
 body,
 p {
     font-family: 'Poppins', sans-serif;
@@ -151,6 +152,41 @@ h3 {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+/*MODAL*/
+.modal-contact {
+    display: none;
+}
+
+.modal-contact.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    inset: 0;
+}
+
+.modal-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+    width: 597px;
+    height: 769px;
+    background: #FFFFFF;
+    border: 5px solid #000000;
+}
+
+.modal-title {
+    display: block;
+    margin-top: 18px;
+    margin-left: -145px;
 }
 
 /*RESPONSIVE*/
