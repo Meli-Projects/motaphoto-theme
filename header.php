@@ -15,7 +15,7 @@
     <div class="container">
 
         <a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
-            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/logo_menu.png" class="logo-menu" alt="Logo Nathalie Mota Photos"            >
+            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/logo_menu.webp" class="logo-menu" alt="Logo Nathalie Mota Photos"            >
         </a>
 
         <nav class="main-navigation">
