@@ -89,11 +89,11 @@ h3 {
 }
 
 /*HEADER*/
-/*menu*/
 .header-site {
     height: 80px;
     display: flex;
     align-items: center;
+    box-shadow: 0px 4px 14px 10px #00000008;
 }
 
 .container {
