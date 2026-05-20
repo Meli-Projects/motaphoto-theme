@@ -10,11 +10,27 @@
 
 <body <?php body_class(); ?>>
 
-<header>
-    <?php
-    wp_nav_menu([
-        'theme_location' => 'main-menu'
-    ]);
-    ?>
+<header class="header-site">
+
+    <div class="container">
+
+        <a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
+            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/logo_menu.png" class="logo-menu" alt="Logo Nathalie Mota Photos"            >
+        </a>
+
+        <nav class="main-navigation">
+
+            <?php
+            wp_nav_menu([
+                'theme_location' => 'main-menu',
+                'container'      => false,
+                'menu_class'     => 'menu'
+            ]);
+            ?>
+
+        </nav>
+
+    </div>
+
 </header>
 

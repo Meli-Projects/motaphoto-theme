@@ -5,3 +5,66 @@ Description: Thème personnalisé pour la photographe Nathalie Mota
 Version: 1.0
 Text Domain: motaphoto-theme
 */
+
+/*FONTS*/
+@font-face {
+    font-family: 'Poppins';
+    src: url('assets/fonts/Poppins-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Space Mono';
+    src: url('assets/fonts/SpaceMono-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Space Mono';
+    src: url('assets/fonts/SpaceMono-Italic.woff') format('woff');
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Space Mono';
+    src: url('assets/fonts/SpaceMono-BoldItalic.woff') format('woff');
+    font-weight: 700;
+    font-style: italic;
+}
+
+/*HEADER*/
+/*menu*/
+.header-site {
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
+
+.container {
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-menu {
+    width: 216px;
+    height: auto;
+}
+
+.menu {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+.menu a {
+    text-transform: uppercase;
+    text-decoration: none;
+    color: black;
+}
