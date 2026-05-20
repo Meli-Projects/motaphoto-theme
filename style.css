@@ -35,6 +35,47 @@ Text Domain: motaphoto-theme
     font-style: italic;
 }
 
+/*GLOBAL*/
+body,
+p {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+}
+
+h1 {
+    font-family: 'Space Mono', monospace;
+    font-weight: 700;
+    font-style: italic;
+    font-size: 96px;
+    text-transform: uppercase;
+}
+
+h2 {
+    font-family: 'Space Mono', monospace;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 66px;
+    line-height: 58px;
+    text-transform: uppercase;
+}
+
+h3 {
+    font-family: 'Space Mono', monospace;
+    font-weight: 400;
+    font-size: 18px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.photo-description {
+    font-family: 'Space Mono', monospace;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
 /*HEADER*/
 /*menu*/
 .header-site {
@@ -67,4 +108,19 @@ Text Domain: motaphoto-theme
     text-transform: uppercase;
     text-decoration: none;
     color: black;
+}
+
+
+/*RESPONSIVE*/
+@media screen and (max-width: 768px) {
+
+    h1 {
+        font-size: 27.59px;
+    }
+
+    h2 {
+        font-size: 46px;
+        line-height: 48px;
+    }
+
 }
