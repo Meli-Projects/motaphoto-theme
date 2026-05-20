@@ -28,6 +28,8 @@
             ]);
             ?>
 
+        <button class="contact-button-menu">Contact</button>    
+
         </nav>
 
     </div>
