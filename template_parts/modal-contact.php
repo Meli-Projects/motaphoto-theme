@@ -10,7 +10,7 @@
 
         <div class="contact-form">
 
-            <p>Le formulaire</p>
+            <?php echo do_shortcode('[contact-form-7 id="5e30352" title="Formulaire de contact"]'); ?>
 
         </div>
 
