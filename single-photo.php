@@ -14,6 +14,7 @@
         $year = get_the_date('Y');
         $previous_photo = get_previous_post();
         $next_photo = get_next_post();
+        $category_id = ''; if ($categories && !is_wp_error($categories)) {$category_id = $categories[0]->term_id;}
         ?>
 
             <section class="photo-content">
@@ -62,12 +63,34 @@
                             <a class="next-photo" href="<?php echo get_permalink($next_photo->ID); ?>">→</a>
                         <?php endif; ?>
                     </div>
-                </div>
             </section>
 
             <section class="related-photos">
                 <h2>VOUS AIMEREZ AUSSI</h2>
-                Photos apparentées
+                
+                <?php
+                $related_photos = new WP_Query([
+                    'post_type'      => 'photo',
+                    'posts_per_page' => 2,
+                    'post__not_in'   => [get_the_ID()],
+                    'tax_query' => [
+                        [
+                            'taxonomy' => 'categorie',
+                            'field'    => 'term_id',
+                            'terms'    => $category_id,
+                        ]
+                    ]
+                ]);
+                ?>
+
+                <div class="related-photos-grid">
+                    <?php if ($related_photos->have_posts()) : ?>
+                        <?php while ($related_photos->have_posts()) : $related_photos->the_post(); ?>
+                            <?php get_template_part('template_parts/photo_block'); ?>
+                        <?php endwhile; ?>
+                        <?php wp_reset_postdata(); ?>
+                    <?php endif; ?>
+                </div>
             </section>
 
         <?php endwhile; ?>
