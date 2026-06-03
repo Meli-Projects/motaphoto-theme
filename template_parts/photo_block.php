@@ -10,8 +10,12 @@
     <?php endif; ?>
 
     <div class="photo-overlay">
-        <a class="fullscreen-icon" href="#">⛶</a>
-        <a class="eye-icon" href="<?php the_permalink(); ?>">👁</a>
+        <a class="fullscreen-icon" href="#">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/fullscreen-icon.svg" alt="Plein écran">
+        </a>
+        <a class="eye-icon" href="<?php the_permalink(); ?>">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/eye-icon.svg" alt="Voir les information">
+        </a>
 
         <div class="photo-detail">
             <span class="photo-reference">

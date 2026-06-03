@@ -9,6 +9,14 @@ add_action( 'after_setup_theme', 'register_motaphoto_menu' );
 //style.css
 function motaphoto_enqueue_styles() {
     wp_enqueue_style('motaphoto-style', get_stylesheet_uri());
+
+//single-photo.css
+wp_enqueue_style('single-photo', get_template_directory_uri() . '/assets/css/single-photo.css',[],'1.0');
+
+
+//photo-block.css
+wp_enqueue_style('photo-block', get_template_directory_uri() . '/assets/css/photo-block.css',[],'1.0');
+
 }
 add_action('wp_enqueue_scripts', 'motaphoto_enqueue_styles');
 

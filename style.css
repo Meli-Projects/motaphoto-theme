@@ -257,24 +257,6 @@ h3 {
     text-transform: none;
 }
 
-/*SINGLE PHOTO*/
-/*thumbnail hover*/
-.thumbnail-previous,
-.thumbnail-next {
-    display: none;
-}
-
-.navigation-thumbnail {
-    width: 80px;
-    height: 70px;
-}
-
-.navigation-thumbnail img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
 /*RESPONSIVE*/
 @media screen and (max-width: 768px) {
 

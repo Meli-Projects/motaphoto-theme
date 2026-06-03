@@ -19,7 +19,7 @@
 
             <section class="photo-content">
                 <div class="photo-info">
-                    <h1><?php the_title(); ?></h1>
+                    <h2><?php the_title(); ?></h2>
                     <p>RÉFÉRENCE : <?php echo esc_html($reference); ?></p>
                     <p>CATÉGORIE : <?php if ($categories && !is_wp_error($categories)) {echo esc_html($categories[0]->name);}?></p>
                     <p>FORMAT : <?php if ($formats && !is_wp_error($formats)) {echo esc_html($formats[0]->name);}?></p>
@@ -41,21 +41,21 @@
                         Contact
                     </button>
                 </div>
+                <div class="nav-photo"> 
+                    <div class="nav-thumbnail">
+                        <?php if ($previous_photo) : ?>
+                            <div class="thumbnail-previous">
+                                <?php echo get_the_post_thumbnail($previous_photo->ID); ?>
+                            </div>
+                        <?php endif; ?>
+                        <?php if ($next_photo) : ?>
+                            <div class="thumbnail-next">
+                                <?php echo get_the_post_thumbnail($next_photo->ID); ?>
+                            </div>
+                        <?php endif; ?>
+                    </div>
 
-                <div class="navigation-thumbnail">
-                    <?php if ($previous_photo) : ?>
-                        <div class="thumbnail-previous">
-                            <?php echo get_the_post_thumbnail($previous_photo->ID); ?>
-                        </div>
-                    <?php endif; ?>
-                    <?php if ($next_photo) : ?>
-                        <div class="thumbnail-next">
-                            <?php echo get_the_post_thumbnail($next_photo->ID); ?>
-                        </div>
-                    <?php endif; ?>
-                </div>
-
-                    <div class="navigation-arrows">
+                    <div class="nav-arrows">
                         <?php if ($previous_photo) : ?>
                             <a class="previous-photo" href="<?php echo get_permalink($previous_photo->ID); ?>">←</a>
                         <?php endif; ?>
@@ -63,10 +63,11 @@
                             <a class="next-photo" href="<?php echo get_permalink($next_photo->ID); ?>">→</a>
                         <?php endif; ?>
                     </div>
+                </div>
             </section>
 
             <section class="related-photos">
-                <h2>VOUS AIMEREZ AUSSI</h2>
+                <h3>VOUS AIMEREZ AUSSI</h3>
                 
                 <?php
                 $related_photos = new WP_Query([
