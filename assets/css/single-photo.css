@@ -7,7 +7,7 @@
 .photo-content {
     display: flex;
     gap: 20px;
-    
+    align-items: flex-end;
 }
 
 .photo-info,
@@ -21,9 +21,15 @@
     display: block;
 }
 
-.photo-info h2 {
-    max-width: 440px;
+.photo-info h1 {
+    max-width: 360px;
     margin-bottom: 20px;
+    font-family: 'Space Mono', monospace;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 66px;
+    line-height: 58px;
+    text-transform: uppercase;
 }
 
 .photo-info p {
@@ -116,8 +122,14 @@
     margin-bottom: 50px;
 }
 
-.related-photos h3 {
+.related-photos h2 {
     margin-bottom: 50px;
+    font-family: 'Space Mono', monospace;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 100%;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
 }
 
 .related-photos-grid {
@@ -134,4 +146,100 @@
     height: 495px;
     object-fit: cover;
     display: block;
+}
+
+/*responsive mobile*/
+@media (max-width: 768px) {
+
+    /* Section 1 */
+    .photo-content {
+        flex-direction: column-reverse;
+        padding: 0 50px;
+    }
+
+    .photo-info,
+    .photo-image {
+        width: 100%;
+    }
+
+    .photo-image img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .photo-info h1 {
+        margin-top: 0;
+        font-size: 46px;
+        line-height: 48px;
+    }
+
+    .photo-info p {
+        margin-bottom: 14px;
+    }
+
+    .photo-info {
+    border-bottom: none;
+    }
+
+    /* Section 2 */
+    .photo-interactions {
+        flex-direction: column;
+        height: auto;
+        padding: 20px 50px;
+        border-top: 1px solid black;
+    }
+
+    .photo-contact,
+    .nav-photo {
+        width: 100%;
+    }
+
+    .photo-contact {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .photo-contact-button {
+        width: 100%;
+        height: 50px;
+    }
+
+    .photo-contact p {
+        align-self: flex-start;
+        text-align: left;
+    }
+
+    /* Navigation*/
+    .nav-photo {
+        display: none;
+    }
+
+    /* Section 3 */
+    .related-photos h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    margin-bottom: 30px;
+    }
+
+    .related-photos {
+        margin-top: 30px;
+        padding: 0 30px;
+    }
+
+    .related-photos-grid {
+        flex-direction: column;
+    }
+
+    .related-photos-grid .photo-card {
+        width: 100%;
+    }
+
+    .related-photos-grid .photo-card > img {
+    width: 100%;
+    height: 279px;
+    object-fit: cover;
+}
 }

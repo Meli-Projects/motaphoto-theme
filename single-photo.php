@@ -19,7 +19,7 @@
 
             <section class="photo-content">
                 <div class="photo-info">
-                    <h2><?php the_title(); ?></h2>
+                    <h1><?php the_title(); ?></h1>
                     <p>RÉFÉRENCE : <?php echo esc_html($reference); ?></p>
                     <p>CATÉGORIE : <?php if ($categories && !is_wp_error($categories)) {echo esc_html($categories[0]->name);}?></p>
                     <p>FORMAT : <?php if ($formats && !is_wp_error($formats)) {echo esc_html($formats[0]->name);}?></p>
@@ -67,7 +67,7 @@
             </section>
 
             <section class="related-photos">
-                <h3>VOUS AIMEREZ AUSSI</h3>
+                <h2>VOUS AIMEREZ AUSSI</h2>
                 
                 <?php
                 $related_photos = new WP_Query([
