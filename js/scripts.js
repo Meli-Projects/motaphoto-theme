@@ -55,3 +55,23 @@ if (photoContactButton && modal && photoReferenceField) {
     });
 
 }
+
+/*responsive menu*/
+const openMenu = document.querySelector('.open-menu');
+const mainNavigation = document.querySelector('.main-navigation');
+
+if (openMenu && mainNavigation) {
+    openMenu.addEventListener('click', () => {
+        mainNavigation.classList.toggle('active');
+
+        const icon = openMenu.querySelector('img');
+
+        if (mainNavigation.classList.contains('active')) {
+            icon.src = icon.src.replace('open.svg', 'close.svg');
+            openMenu.setAttribute('aria-label', 'Fermer le menu');
+        } else {
+            icon.src = icon.src.replace('close.svg', 'open.svg');
+            openMenu.setAttribute('aria-label', 'Ouvrir le menu');
+        }
+    });
+}

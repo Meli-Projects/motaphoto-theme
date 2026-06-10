@@ -18,6 +18,9 @@
             <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/logo_menu.webp" class="logo-menu" alt="Logo Nathalie Mota Photos"            >
         </a>
 
+        <button class="open-menu" aria-label="Ouvrir le menu">
+            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/open.svg" alt="Bouton hamburger ouverture du menu">
+        </button>
         <nav class="main-navigation">
 
             <?php
