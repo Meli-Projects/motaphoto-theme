@@ -1,0 +1,50 @@
+.hero {
+    position: relative;
+    height: 100vh;
+    max-height: 962px;
+}
+
+.hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero h1 {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: transparent;
+    -webkit-text-stroke: 2px white;
+    white-space: nowrap;
+
+}
+
+/*.hero {
+    position: relative;
+    height: 100vh;
+    max-height: 962px;
+    overflow: hidden;
+}
+
+.hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.hero h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    color: transparent;
+    -webkit-text-stroke: 2px white;
+
+    white-space: nowrap;
+}*/
