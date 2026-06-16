@@ -36,9 +36,30 @@ add_action('wp_enqueue_scripts', 'motaphoto_enqueue_scripts');
 //load more photos
 function load_more_photos() {
 
-    echo 'Requête reçue';
+$page = $_POST['page'];
 
-    wp_die();
+$photos = new WP_Query([
+    'post_type'      => 'photo',
+    'posts_per_page' => 8,
+    'paged'          => $page + 1,
+    'post_status'    => 'publish'
+]);
+
+if ($photos->have_posts()) {
+
+    while ($photos->have_posts()) {
+
+    $photos->the_post();
+
+    get_template_part('template_parts/photo_block');
+
+    }
+
+    wp_reset_postdata();
+}
+
+wp_die();
+
 }
 
 add_action('wp_ajax_load_more_photos', 'load_more_photos');

@@ -75,8 +75,12 @@ loadMoreButton.addEventListener('click', () => {
     })
     .then(response => response.text())
     .then(result => {
-        console.log(result);
-    });
+    const galleryGrid = document.querySelector('.photo-gallery-grid');
+
+    galleryGrid.insertAdjacentHTML('beforeend', result);
+
+    loadMoreButton.dataset.page = parseInt(currentPage) + 1;
+});
 
 });
 
