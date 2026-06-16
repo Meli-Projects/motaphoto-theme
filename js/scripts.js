@@ -56,17 +56,23 @@ if (photoContactButton && modal && photoReferenceField) {
 
 }
 
+/*filters*/
+const categoryFilter = document.querySelector('#categorie');
+const formatFilter = document.querySelector('#format');
+const sortFilter = document.querySelector('#sort');
+const galleryGrid = document.querySelector('.photo-gallery-grid');
+
 /*load more button*/
 const loadMoreButton = document.querySelector('.load-more-button');
 
-loadMoreButton.addEventListener('click', () => {
-
-    const currentPage = loadMoreButton.dataset.page;
-    const action = loadMoreButton.dataset.action;
+function loadPhotos(page = 1, append = false) {
 
     const data = {
-        action: action,
-        page: currentPage
+        action: 'load_more_photos',
+        page: page,
+        categorie: categoryFilter.value,
+        format: formatFilter.value,
+        sort: sortFilter.value
     };
 
     fetch(motaphotoData.ajaxUrl, {
@@ -75,14 +81,50 @@ loadMoreButton.addEventListener('click', () => {
     })
     .then(response => response.text())
     .then(result => {
-    const galleryGrid = document.querySelector('.photo-gallery-grid');
 
-    galleryGrid.insertAdjacentHTML('beforeend', result);
+        if (append) {
+            galleryGrid.insertAdjacentHTML('beforeend', result);
+        } else {
+            galleryGrid.innerHTML = result;
+        }
 
-    loadMoreButton.dataset.page = parseInt(currentPage) + 1;
-});
+    });
 
-});
+}
+if (loadMoreButton) {
+    loadMoreButton.addEventListener('click', () => {
+        const currentPage =
+            parseInt(loadMoreButton.dataset.page);
+        loadPhotos(currentPage + 1, true);
+        loadMoreButton.dataset.page =
+            currentPage + 1;
+    });
+
+}
+
+if (categoryFilter) {
+    categoryFilter.addEventListener('change', () => {
+        loadPhotos();
+        loadMoreButton.dataset.page = 1;
+    });
+
+}
+
+if (formatFilter) {
+    formatFilter.addEventListener('change', () => {
+        loadPhotos();
+        loadMoreButton.dataset.page = 1;
+    });
+
+}
+
+if (sortFilter) {
+    sortFilter.addEventListener('change', () => {
+        loadPhotos();
+        loadMoreButton.dataset.page = 1;
+    });
+
+}
 
 /*responsive menu*/
 const openMenu = document.querySelector('.open-menu');
