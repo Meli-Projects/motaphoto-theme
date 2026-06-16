@@ -56,6 +56,30 @@ if (photoContactButton && modal && photoReferenceField) {
 
 }
 
+/*load more button*/
+const loadMoreButton = document.querySelector('.load-more-button');
+
+loadMoreButton.addEventListener('click', () => {
+
+    const currentPage = loadMoreButton.dataset.page;
+    const action = loadMoreButton.dataset.action;
+
+    const data = {
+        action: action,
+        page: currentPage
+    };
+
+    fetch(motaphotoData.ajaxUrl, {
+        method: 'POST',
+        body: new URLSearchParams(data)
+    })
+    .then(response => response.text())
+    .then(result => {
+        console.log(result);
+    });
+
+});
+
 /*responsive menu*/
 const openMenu = document.querySelector('.open-menu');
 const mainNavigation = document.querySelector('.main-navigation');

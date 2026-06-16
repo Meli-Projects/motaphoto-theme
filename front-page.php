@@ -69,12 +69,8 @@
         <?php endif; ?>
     </div>
     <!-- load more button -->
-    <button class="load-more-button">Charger plus</button>
+    <button class="load-more-button" data-page="1" data-action="load_more_photos">Charger plus</button>
 </section>
-
-
-
-
 </main>
 
 <?php get_footer(); ?>
