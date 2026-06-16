@@ -36,7 +36,6 @@ Text Domain: motaphoto-theme
 }
 
 /*GLOBAL*/
-
 body,
 p {
     font-family: 'Poppins', sans-serif;
@@ -337,4 +336,24 @@ h3 {
     }
 
   
+}
+
+/*FOOTER*/
+@media (max-width: 768px) {
+
+    .footer-site {
+        min-height: 208px;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        justify-content: center;
+        gap: 24px;
+    }
+
+        .footer-text {
+        margin-top: auto;
+    }
+
+    
 }
