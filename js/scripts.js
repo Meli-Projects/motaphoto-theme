@@ -65,14 +65,19 @@ const galleryGrid = document.querySelector('.photo-gallery-grid');
 /*load more button*/
 const loadMoreButton = document.querySelector('.load-more-button');
 
-function loadPhotos(page = 1, append = false) {
+    /*loading the page via ajax*/
+    if (galleryGrid) {
+    loadPhotos();
+}
+
+function loadPhotos(page = 1, isAppend = false) {
 
     const data = {
         action: 'load_more_photos',
         page: page,
-        categorie: categoryFilter.value,
-        format: formatFilter.value,
-        sort: sortFilter.value
+        categorie: categoryFilter?.dataset.value || '',
+        format: formatFilter?.dataset.value || '',
+        sort: sortFilter?.dataset.value || ''
     };
 
     fetch(motaphotoData.ajaxUrl, {
@@ -82,49 +87,72 @@ function loadPhotos(page = 1, append = false) {
     .then(response => response.text())
     .then(result => {
 
-        if (append) {
+        if (isAppend) {
             galleryGrid.insertAdjacentHTML('beforeend', result);
         } else {
             galleryGrid.innerHTML = result;
         }
 
     });
-
 }
+
 if (loadMoreButton) {
     loadMoreButton.addEventListener('click', () => {
-        const currentPage =
-            parseInt(loadMoreButton.dataset.page);
+
+        const currentPage = parseInt(loadMoreButton.dataset.page);
+
         loadPhotos(currentPage + 1, true);
         loadMoreButton.dataset.page =
             currentPage + 1;
     });
-
 }
 
-if (categoryFilter) {
-    categoryFilter.addEventListener('change', () => {
-        loadPhotos();
-        loadMoreButton.dataset.page = 1;
+/*custom filters*/
+const customSelects = document.querySelectorAll('.custom-select');
+
+customSelects.forEach((customSelect) => {
+    const select = customSelect.querySelector('.select');
+    const selectText = customSelect.querySelector('.select-text');
+    const options = customSelect.querySelectorAll('.options-list li');
+
+    if (select) {
+        select.addEventListener('click', (event) => {
+            event.stopPropagation();
+            customSelect.classList.toggle('open');
+        });
+
+    }
+
+    options.forEach((option) => {
+        option.addEventListener('click', () => {
+            options.forEach((item) => {
+                item.classList.remove('active');
+            });
+
+            if (option.dataset.value === '') {
+                selectText.textContent =
+                    customSelect.dataset.placeholder;
+
+            } else {
+                selectText.textContent =
+                    option.textContent;
+                option.classList.add('active');
+            }
+
+            customSelect.dataset.value = option.dataset.value;
+
+            loadPhotos();
+            loadMoreButton.dataset.page = 1;
+            customSelect.classList.remove('open');
+        });
     });
+});
 
-}
-
-if (formatFilter) {
-    formatFilter.addEventListener('change', () => {
-        loadPhotos();
-        loadMoreButton.dataset.page = 1;
+document.addEventListener('click', () => {
+    customSelects.forEach((customSelect) => {
+        customSelect.classList.remove('open');
     });
-
-}
-
-if (sortFilter) {
-    sortFilter.addEventListener('change', () => {
-        loadPhotos();
-        loadMoreButton.dataset.page = 1;
-    });
-
-}
+});
 
 /*responsive menu*/
 const openMenu = document.querySelector('.open-menu');
