@@ -1,13 +1,21 @@
-<article class="photo-card">
+
     <?php
     $reference = get_post_meta(get_the_ID(), 'reference', true);
     $categories = get_the_terms(get_the_ID(), 'categorie');
     $category_name = ''; if ($categories && !is_wp_error($categories)) {$category_name = $categories[0]->name;}
     ?>
 
+<article class="photo-card"
+    data-image="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'large'); ?>"
+    data-reference="<?php echo esc_attr($reference); ?>"
+    data-category="<?php echo esc_attr($category_name); ?>"
+>
+
     <?php if (has_post_thumbnail()) : ?>
         <?php the_post_thumbnail('large'); ?>
     <?php endif; ?>
+
+
 
     <div class="photo-overlay">
         <a class="fullscreen-icon" href="#">

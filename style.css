@@ -23,6 +23,13 @@ Text Domain: motaphoto-theme
 
 @font-face {
     font-family: 'Space Mono';
+    src: url('assets/fonts/SpaceMono-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Space Mono';
     src: url('assets/fonts/SpaceMono-Italic.woff') format('woff');
     font-weight: 400;
     font-style: italic;
@@ -87,6 +94,12 @@ h3 {
     text-transform: uppercase;
     text-decoration: none;
     color: black;
+}
+
+.menu a:hover,
+.footer-container a:hover,
+.contact-button-menu:hover {
+    font-weight: 700;
 }
 
 /*HEADER*/

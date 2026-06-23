@@ -1,0 +1,121 @@
+/* lightbox */
+.lightbox {
+    display: none;
+}
+
+.lightbox.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+/* central block */
+.lightbox-content {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.lightbox-center {
+    display: flex;
+    flex-direction: column;
+}
+
+/* close button */
+.lightbox-close {
+    position: absolute;
+    top: 80px;
+    right: 60px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* image */
+.lightbox-container {
+    width: 60vw;
+    max-width: 800px;
+    height: 70vh;
+    max-height: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* informations */
+.lightbox-infos {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-family: 'Space Mono', monospace;
+}
+
+/* navigation */
+.lightbox-nav {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.lightbox-nav img {
+    display: block;
+    width: 92px;
+    height: 18px;
+    transition: opacity 0.3s ease;
+}
+
+.lightbox-nav:hover img {
+    opacity: 0.7;
+}
+
+/*responsive*/
+@media screen and (max-width: 768px) {
+    /* central block */
+    .lightbox-center {
+        grid-column: 1 / 3;
+        grid-row: 2;
+        margin-top: 0px;
+    }
+
+    /* image */
+    .lightbox-container {
+        width: 55vw;
+        height: 30vh;
+    }
+
+    .lightbox-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-items: center;
+        align-items: start;
+        column-gap: 10px;
+    }
+    
+    /* navigation */
+    .lightbox-prev {
+        grid-column: 1;
+        grid-row: 1;
+        position: static;
+        transform: none;
+    }
+
+    .lightbox-next {
+        grid-column: 2;
+        grid-row: 1;
+        position: static;
+        transform: none;
+    }
+}
