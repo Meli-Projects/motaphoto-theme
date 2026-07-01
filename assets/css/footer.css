@@ -1,0 +1,36 @@
+/*FOOTER*/
+.footer-site {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    border-top: 1px solid black;
+}
+
+.footer-container {
+    max-width: 620px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/*RESPONSIVE*/
+@media (max-width: 768px) {
+
+    .footer-site {
+        min-height: 208px;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        justify-content: center;
+        gap: 24px;
+    }
+
+        .footer-text {
+        margin-top: auto;
+    }
+
+    
+}
