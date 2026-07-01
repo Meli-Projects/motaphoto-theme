@@ -1,21 +1,23 @@
+/* ---- Contact modal ---- */
+// Contact button from header menu
 const contactButton = document.querySelector('.contact-button-menu');
 const modal = document.querySelector('.modal-contact');
 const overlay = document.querySelector('.modal-overlay');
 
-const thumbnailPrevious = document.querySelector('.thumbnail-previous');
-const thumbnailNext = document.querySelector('.thumbnail-next');
-
-const photoContactButton = document.querySelector('.photo-contact-button');
-const photoReferenceField = document.querySelector('input[name="your-photo"]');
-
+// Open modal
 contactButton.addEventListener('click', () => {
     modal.classList.add('active');
 });
 
+// Close modal when clicking outside
 overlay.addEventListener('click', () => {
     modal.classList.remove('active');
 });
 
+/* ---- Photo navigation thumbnails ---- */
+// Previous/next thumbnails displayed on single photo page
+const thumbnailPrevious = document.querySelector('.thumbnail-previous');
+const thumbnailNext = document.querySelector('.thumbnail-next');
 const previousPhoto = document.querySelector('.previous-photo');
 
 if (previousPhoto && thumbnailPrevious) {
@@ -44,11 +46,17 @@ if (nextPhoto && thumbnailNext) {
 
 }
 
+/* ---- Contact form auto fill ---- */
+// Single photo contact button
+const photoContactButton = document.querySelector('.photo-contact-button');
+// Contact Form 7 field used to store the photo reference
+const photoReferenceField = document.querySelector('input[name="your-photo"]');
+
 if (photoContactButton && modal && photoReferenceField) {
 
     photoContactButton.addEventListener('click', () => {
         const photoReference = photoContactButton.dataset.reference;
-
+        // Fill the contact form with the current photo reference
         photoReferenceField.value = photoReference;
 
         modal.classList.add('active');
@@ -56,20 +64,21 @@ if (photoContactButton && modal && photoReferenceField) {
 
 }
 
-/*filters*/
+/* ---- ajax filters ---- */
 const categoryFilter = document.querySelector('#categorie');
 const formatFilter = document.querySelector('#format');
 const sortFilter = document.querySelector('#sort');
 const galleryGrid = document.querySelector('.photo-gallery-grid');
 
-/*load more button*/
 const loadMoreButton = document.querySelector('.load-more-button');
 
-    /*loading the page via ajax*/
+/* ---- Gallery loading ---- */
+    //Initial gallery loading
     if (galleryGrid) {
     loadPhotos();
 }
 
+/* ---- ajax photo loading function ---- */
 function loadPhotos(page = 1, isAppend = false) {
 
     const data = {
@@ -96,6 +105,7 @@ function loadPhotos(page = 1, isAppend = false) {
     });
 }
 
+/* ---- load more button ---- */
 if (loadMoreButton) {
     loadMoreButton.addEventListener('click', () => {
 
@@ -107,7 +117,7 @@ if (loadMoreButton) {
     });
 }
 
-/*custom filters*/
+/* ----  custom filters ----  */
 const customSelects = document.querySelectorAll('.custom-select');
 
 customSelects.forEach((customSelect) => {
@@ -154,20 +164,28 @@ document.addEventListener('click', () => {
     });
 });
 
-/*responsive menu*/
+/*---- responsive menu ----  */
 const openMenu = document.querySelector('.open-menu');
 const mainNavigation = document.querySelector('.main-navigation');
 
 if (openMenu && mainNavigation) {
     openMenu.addEventListener('click', () => {
+
         mainNavigation.classList.toggle('active');
 
         const icon = openMenu.querySelector('img');
 
         if (mainNavigation.classList.contains('active')) {
+
+            document.body.style.overflow = 'hidden';
+
             icon.src = icon.src.replace('open.svg', 'close.svg');
             openMenu.setAttribute('aria-label', 'Fermer le menu');
+
         } else {
+
+            document.body.style.overflow = '';
+
             icon.src = icon.src.replace('close.svg', 'open.svg');
             openMenu.setAttribute('aria-label', 'Ouvrir le menu');
         }
